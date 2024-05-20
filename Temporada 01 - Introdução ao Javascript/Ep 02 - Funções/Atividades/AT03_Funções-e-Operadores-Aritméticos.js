@@ -13,13 +13,14 @@ leitor.question('Digite o valor do primeiro número: ', (resposta) => {
     leitor.question('Digite o valor do segundo número: ', (resposta) => {
         const $numeroY = parseFloat(resposta);
 
-        exibirDados($numeroX, $numeroY);
+        Main(exibirDados, $numeroX, $numeroY);
 
         leitor.close();
     });
 });
 
 
+//Funções Declaradas (Function Declarations)
 function somar($numeroX, $numeroY){
     return $numeroX + $numeroY;
 }
@@ -28,25 +29,28 @@ function subitrair($numeroX, $numeroY){
     return $numeroX - $numeroY;
 }
 
-function multiplicar($numeroX, $numeroY){
+
+// Funções Expressas (Function Expressions)
+const multiplicar = function ($numeroX, $numeroY) {
     return $numeroX * $numeroY;
 }
 
-function dividir($numeroX, $numeroY){
+const dividir = function ($numeroX, $numeroY){
     return $numeroX / $numeroY;
 }
 
-function resto($numeroX, $numeroY){
+
+// Funções de Setas (Arrow Functions)
+const resto = ($numeroX, $numeroY) => {
     return $numeroX % $numeroY;
 }
 
-function media($numeroX, $numeroY){
-    return ($numeroX + $numeroY)/2
-}
+const media = ($numeroX, $numeroY) => (($numeroX + $numeroY)/2);
 
-function potencia($numeroX, $numeroY){
-    return $numeroX ** $numeroY
-}
+const potencia = ($numeroX, $numeroY) => ($numeroX ** $numeroY);
+
+
+
 
 function exibirDados($numeroX, $numeroY){
     console.log(`
@@ -54,11 +58,16 @@ function exibirDados($numeroX, $numeroY){
         ${$numeroX} + ${$numeroY} = ${somar($numeroX, $numeroY)}
         ${$numeroX} - ${$numeroY} = ${subitrair($numeroX, $numeroY)}
         ${$numeroX} * ${$numeroY} = ${multiplicar($numeroX, $numeroY)}
-        ${$numeroX} / ${$numeroY} = ${dividir($numeroX, $numeroY).toFixed(2)}
-        ${$numeroX} % ${$numeroY} = ${resto($numeroX, $numeroY).toFixed(2)}
+        ${$numeroX} / ${$numeroY} = ${dividir($numeroX, $numeroY).toFixed(1)}
+        ${$numeroX} % ${$numeroY} = ${resto($numeroX, $numeroY).toFixed(1)}
         ${$numeroX} ** ${$numeroY} = ${potencia($numeroX, $numeroY)}
 
         Média:
         A média entre ${$numeroX} e ${$numeroY} é ${media($numeroX, $numeroY).toFixed(1)}.
     `);
+}
+
+// Funções de Ordem Superior (Higher-Order Functions)
+function Main(exibirDados, $numeroX, $numeroY){
+    return exibirDados($numeroX, $numeroY);
 }
