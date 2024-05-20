@@ -1,5 +1,5 @@
 // Importação do módulo readline
-const readline = require('readline')
+const readline = require('readline');
 
 // Criação da interface readline
 const leitor = readline.createInterface({
@@ -60,5 +60,5 @@ function exibirDados($numeroX, $numeroY){
 
         Média:
         A média entre ${$numeroX} e ${$numeroY} é ${media($numeroX, $numeroY).toFixed(1)}.
-    `)
+    `);
 }
