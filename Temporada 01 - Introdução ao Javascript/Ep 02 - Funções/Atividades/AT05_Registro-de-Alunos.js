@@ -1,12 +1,15 @@
 const readline = require('readline');
 
-const leitor = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+function prompt(query) {
+    const leitor = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
 
-function prompt(question){
-    return new Promise(resposta => leitor.question(question, resposta));
+    return new Promise(resolve => leitor.question(query, answer => {
+        leitor.close();
+        resolve(answer);
+    }));
 }
 
 async function obterDadosDoAluno(){

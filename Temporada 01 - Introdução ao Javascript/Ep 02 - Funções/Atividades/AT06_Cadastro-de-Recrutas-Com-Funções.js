@@ -1,18 +1,16 @@
-// Importa o módulo readline para interagir com a entrada e saída do terminal
 const readline = require('readline');
-
-// Obtém o ano atual
 const $anoAtual = new Date().getFullYear();
 
-// Cria uma interface de leitura para interagir com o terminal
-const leitor = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+function prompt(query) {
+    const leitor = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
 
-// Função assíncrona para exibir uma pergunta no terminal e aguardar a resposta do usuário
-function prompt(question) {
-    return new Promise(resposta => leitor.question(question, resposta));
+    return new Promise(resolve => leitor.question(query, answer => {
+        leitor.close();
+        resolve(answer);
+    }));
 }
 
 // Função assíncrona para coletar os dados do recruta a partir do terminal
