@@ -7,11 +7,11 @@ const leitor = readline.createInterface({
     output: process.stdout
 });
 
-leitor.question('Digite o valor do primeiro número: ', (resposta) => {
-    const $numeroX = parseFloat(resposta);
+leitor.question('Digite o valor do primeiro número: ', (answer) => {
+    const $numeroX = parseFloat(answer);
 
-    leitor.question('Digite o valor do segundo número: ', (resposta) => {
-        const $numeroY = parseFloat(resposta);
+    leitor.question('Digite o valor do segundo número: ', (answer) => {
+        const $numeroY = parseFloat(answer);
 
         Main(exibirDados, $numeroX, $numeroY);
 

@@ -9,10 +9,10 @@ const leitor = readline.createInterface({
 
 let $primeiroNome, $sobrenome, $nomeCompleto;
 
-leitor.question('Digite o primeiro nome: ', (resposta) => {
-    $primeiroNome = resposta;
-    leitor.question('Digite o sobrenome: ', (resposta) => {
-      $sobrenome = resposta;
+leitor.question('Digite o primeiro nome: ', (answer) => {
+    $primeiroNome = answer;
+    leitor.question('Digite o sobrenome: ', (answer) => {
+      $sobrenome = answer;
       // Após obter os dados do usuário, exibe a saudação com o nome completo
       console.log(`
         Olá, meu nome é ${exibirNomeCompleto($primeiroNome, $sobrenome)}

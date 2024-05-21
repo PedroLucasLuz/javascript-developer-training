@@ -5,17 +5,17 @@ const leitor = readline.createInterface({
     output : process.stdout
 });
 
-leitor.question('Informe o nome do cliente: ', (resposta) =>{
-    const $nomeDoCliente = resposta;
+leitor.question('Informe o nome do cliente: ', (answer) =>{
+    const $nomeDoCliente = answer;
 
-    leitor.question('Informe o número da conta: ', (resposta) =>{
-        const $numeroDaConta = parseInt(resposta);
+    leitor.question('Informe o número da conta: ', (answer) =>{
+        const $numeroDaConta = parseInt(answer);
 
-        leitor.question('Informe o número da agência: ', (resposta) =>{
-            const $numeroDaAgencia = resposta;
+        leitor.question('Informe o número da agência: ', (answer) =>{
+            const $numeroDaAgencia = answer;
 
-           leitor.question('Informe o saldo inicial: ', (resposta) =>{
-                const $saldoInicial = parseFloat(resposta);
+           leitor.question('Informe o saldo inicial: ', (answer) =>{
+                const $saldoInicial = parseFloat(answer);
 
                 exibirDados($nomeDoCliente, $numeroDaAgencia, $numeroDaConta, $saldoInicial);
 
