@@ -12,7 +12,7 @@ function prompt(query) {
     }));
 }
 
-async function obterDadosDoAluno() {
+async function obterEntradaTerminal() {
     const $nomeDoAluno = await prompt('Informe o nome do aluno: ');
     const $idadeDoAluno = parseInt(await prompt('Informe a idade do aluno: '));
     if (isNaN($idadeDoAluno) || $idadeDoAluno < 0) throw new Error('Idade inválida');
@@ -64,7 +64,7 @@ function $exibirDados(dadosDoAluno, $media, $conceito) {
 
 async function main() {
     try {
-        const $dadosDoAluno = await obterDadosDoAluno();
+        const $dadosDoAluno = await obterEntradaTerminal();
         const $media = $calcularMedia($dadosDoAluno);
         const $conceito = $analisarMedia($media);
         $exibirDados($dadosDoAluno, $media, $conceito);
