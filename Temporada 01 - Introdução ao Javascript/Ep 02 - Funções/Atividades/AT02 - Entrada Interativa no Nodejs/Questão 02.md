@@ -16,4 +16,4 @@ Digite o primeiro nome: Pedro Lucas
 Digite o sobrenome: Costa
 
 > 
-    Olá, meu nome é Pedro Lucas
+    Olá, meu nome é Pedro Lucas Costa
