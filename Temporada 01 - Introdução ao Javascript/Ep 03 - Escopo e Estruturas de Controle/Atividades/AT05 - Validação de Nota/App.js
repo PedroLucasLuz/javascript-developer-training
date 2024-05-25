@@ -31,8 +31,14 @@ async function obterNotaValida() {
 }
 
 async function main() {
-    const notaValida = await obterNotaValida();
-    console.log(`Nota válida informada: ${notaValida}`);
+
+    try {
+        const notaValida = await obterNotaValida();
+        console.log(`Nota válida informada: ${notaValida}`);
+    } catch (error) {
+        console.error('Erro:', error.message);
+    }
+    
 }
 
 main();
