@@ -6,55 +6,55 @@ function prompt(query) {
         output: process.stdout
     });
 
-    return new Promise(resolve => leitor.question(query, answer => {
+    return new Promise(resolve => leitor.question(query, $answer => {
         leitor.close();
-        resolve(answer);
+        resolve($answer);
     }));
 }
 
 async function obterEntradaTerminal() {
-    let temperaturas = [];
+    let $temperaturas = [];
     while (true) {
-        let entrada = await prompt("Informe a temperatura (ou 'sair' para finalizar): ");
-        if (entrada.toLowerCase() === 'sair') break;
+        let $entrada = await prompt("Informe a temperatura (ou 'sair' para finalizar): ");
+        if ($entrada.toLowerCase() === 'sair') break;
         
-        let temperatura = parseFloat(entrada);
-        if (!isNaN(temperatura)) {
-            temperaturas.push(temperatura);
+        let $temperatura = parseFloat($entrada);
+        if (!isNaN($temperatura)) {
+            $temperaturas.push($temperatura);
         } else {
             console.log("Valor inválido. Tente novamente.");
         }
     }
-    return temperaturas;
+    return $temperaturas;
 }
 
-function calcularEstatisticas(temperaturas) {
-    if (temperaturas.length === 0) return null;
+function calcularEstatisticas($temperaturas) {
+    if ($temperaturas.length === 0) return null;
 
-    let menor = Math.min(...temperaturas);
-    let maior = Math.max(...temperaturas);
-    let soma = temperaturas.reduce((acc, temp) => acc + temp, 0);
-    let media = soma / temperaturas.length;
+    let $menor = Math.min(...$temperaturas);
+    let $maior = Math.max(...$temperaturas);
+    let $soma = $temperaturas.reduce((acc, $temp) => acc + $temp, 0);
+    let $media = $soma / $temperaturas.length;
 
-    return { menor, maior, media };
+    return { $menor, $maior, $media };
 }
 
-function exibirDados(estatisticas) {
-    if (!estatisticas) {
+function exibirDados($estatisticas) {
+    if (!$estatisticas) {
         console.log("Nenhuma temperatura informada.");
     } else {
         console.log(`
-            Menor Temperatura: ${estatisticas.menor.toFixed(2)}
-            Maior Temperatura: ${estatisticas.maior.toFixed(2)}
-            Média das Temperaturas: ${estatisticas.media.toFixed(2)}
+            Menor Temperatura: ${$estatisticas.$menor.toFixed(2)}°
+            Maior Temperatura: ${$estatisticas.$maior.toFixed(2)}°
+            Média das Temperaturas: ${$estatisticas.$media.toFixed(2)}°
         `);
     }
 }
 
 async function main() {
-    const temperaturas = await obterEntradaTerminal();
-    const estatisticas = calcularEstatisticas(temperaturas);
-    exibirDados(estatisticas);
+    const $temperaturas = await obterEntradaTerminal();
+    const $estatisticas = calcularEstatisticas($temperaturas);
+    exibirDados($estatisticas);
 }
 
 main();
